@@ -23,7 +23,11 @@ public class PessoaService {
 	FormularioRepository formularioRepository;
 
 	public List<Pessoa> listarAgentes() {
-		return pessoaRepository.findAll();
+		return pessoaRepository.listarAgentes();
+	}
+	
+	public List<Pessoa> listarSupervisores() {
+		return pessoaRepository.listarSupervisores();
 	}
 
 
@@ -39,5 +43,8 @@ public class PessoaService {
 			return null;
 		}
 	}
+
+
+	
 
 }

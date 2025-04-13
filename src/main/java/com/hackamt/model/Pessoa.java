@@ -39,6 +39,9 @@ public class Pessoa {
 
     @Column(nullable = false)
     private boolean ativo = true;
+    
+    @Column()
+    private Long tipoPessoa;
 
     @Column()
     private LocalDateTime dataCadastro = LocalDateTime.now();
@@ -54,21 +57,31 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    // Construtor com argumentos
-    public Pessoa(String nome, String cpf, String email, String telefone, String endereco, String senha) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.senha = senha;
-        this.ativo = true;
-        this.dataCadastro = LocalDateTime.now();
-    }
+   
+
+
+    public Pessoa(Long idenPessoa, String nome, String cpf, String email, String telefone, String endereco,
+			String senha, boolean ativo, Long tipoPessoa, LocalDateTime dataCadastro, List<Formulario> formulariosLista,
+			List<Formulario> formulariosListaSupervisor) {
+		super();
+		this.idenPessoa = idenPessoa;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.telefone = telefone;
+		this.endereco = endereco;
+		this.senha = senha;
+		this.ativo = ativo;
+		this.tipoPessoa = tipoPessoa;
+		this.dataCadastro = dataCadastro;
+		this.formulariosLista = formulariosLista;
+		this.formulariosListaSupervisor = formulariosListaSupervisor;
+	}
 
 
 
-    public Long getIdenPessoa() {
+
+	public Long getIdenPessoa() {
 		return idenPessoa;
 	}
 
@@ -154,6 +167,14 @@ public class Pessoa {
 
 	public void setFormulariosListaSupervisor(List<Formulario> formulariosListaSupervisor) {
 		this.formulariosListaSupervisor = formulariosListaSupervisor;
+	}
+
+	public Long getTipoPessoa() {
+		return tipoPessoa;
+	}
+
+	public void setTipoPessoa(Long tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
 	}
 
  

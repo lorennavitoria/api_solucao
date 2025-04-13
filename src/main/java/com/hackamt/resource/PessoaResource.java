@@ -28,6 +28,11 @@ public class PessoaResource {
 	    return pessoaService.listarAgentes();
 	}
 	
+	@GetMapping("/supervisores")
+	public List<Pessoa> listarSupervisores(){
+		return pessoaService.listarSupervisores();
+	}
+	
 	@GetMapping("/buscarvalidador/{idenFormulario}")
 	public Pessoa buscarValidadorFormulario(@PathVariable Long idenFormulario) {
 		return pessoaService.buscarValidadorFormulario(idenFormulario);

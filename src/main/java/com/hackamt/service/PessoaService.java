@@ -43,6 +43,38 @@ public class PessoaService {
 			return null;
 		}
 	}
+	
+	public String realizarLogin(String cpf, String senha) {
+		senha = senha.trim(); 
+		
+	    Optional<Pessoa> pessoaTry = pessoaRepository.findByCpf(cpf);
+
+	    if (pessoaTry.isPresent()) {
+	        Pessoa pessoa = pessoaTry.get();
+
+	        if (pessoa.getSenha().equals(senha)) {
+	            if (!pessoa.isAtivo()) {
+	                return "Usuário inativo";
+	            }
+
+	            String tipo;
+	            if (pessoa.getTipoPessoa() == 1L) {
+	                tipo = "1";
+	            } else if (pessoa.getTipoPessoa() == 2L) {
+	                tipo = "2";
+	            } else {
+	                tipo = "Tipo desconhecido";
+	            }
+
+	            return "Login realizado com sucesso! Tipo: " + tipo;
+	        } else {
+	            return "Senha incorreta";
+	        }
+	    } else {
+	        return "CPF não encontrado";
+	    }
+	}
+
 
 
 	

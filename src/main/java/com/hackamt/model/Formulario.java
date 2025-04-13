@@ -29,11 +29,8 @@ public class Formulario {
 	//Agente
 	@ManyToOne
 	@JoinColumn(name = "pessoa_id")
-	private Pessoa pessoa;
-	
-	   
+	private Pessoa pessoa;   
   
-	
 	@Column(name = "municipio", nullable = false, length = 100)
     private String municipio;
 	
@@ -79,6 +76,8 @@ public class Formulario {
     private String numeroSequenciaQuarteroes_albopictus;
 	
  
+    @Column(name = "formulario_validado", nullable = false)
+    private boolean formularioValidado;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "formulario")
 	private List<RegistroVisita> registroVisitas;
@@ -202,6 +201,14 @@ public class Formulario {
 
 	public void setNumeroSequenciaQuarteroes_albopictus(String numeroSequenciaQuarteroes_albopictus) {
 		this.numeroSequenciaQuarteroes_albopictus = numeroSequenciaQuarteroes_albopictus;
+	}
+
+	public boolean isFormularioValidado() {
+		return formularioValidado;
+	}
+
+	public void setFormularioValidado(boolean formularioValidado) {
+		this.formularioValidado = formularioValidado;
 	}
 	
 	

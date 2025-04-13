@@ -23,6 +23,8 @@ public class FormularioDto {
 	private Long idenSupervisor;//Tipo Pessoa
 	private String numeroSequenciaQuarteroes_aegypti;
 	private String numeroSequenciaQuarteroes_albopictus;
+	private Pessoa supervisor;
+	private boolean formularioValidado;
 	
 	//Lista de RegistroVisita
 	List<RegistroVisita> registroVisitaList;
@@ -37,10 +39,15 @@ public class FormularioDto {
 
 
 
+	
+
+
+
 	public FormularioDto(Long idenFormulario, Long idenPessoa, String municipio, String codigoNomeLocalidade,
 			String categoria, String zona, String tipoAtividade, String ciclo, boolean zonaConcluida,
 			Integer totalDepositos, Long idenSupervisor, String numeroSequenciaQuarteroes_aegypti,
-			String numeroSequenciaQuarteroes_albopictus, List<RegistroVisita> registroVisitaList) {
+			String numeroSequenciaQuarteroes_albopictus, Pessoa supervisor, boolean formularioValidado,
+			List<RegistroVisita> registroVisitaList) {
 		super();
 		this.idenFormulario = idenFormulario;
 		this.idenPessoa = idenPessoa;
@@ -55,8 +62,14 @@ public class FormularioDto {
 		this.idenSupervisor = idenSupervisor;
 		this.numeroSequenciaQuarteroes_aegypti = numeroSequenciaQuarteroes_aegypti;
 		this.numeroSequenciaQuarteroes_albopictus = numeroSequenciaQuarteroes_albopictus;
+		this.supervisor = supervisor;
+		this.formularioValidado = formularioValidado;
 		this.registroVisitaList = registroVisitaList;
 	}
+
+
+
+
 
 
 
@@ -252,6 +265,50 @@ public class FormularioDto {
 
 	public void setRegistroVisitaList(List<RegistroVisita> registroVisitaList) {
 		this.registroVisitaList = registroVisitaList;
+	}
+
+
+
+
+
+
+
+
+	public Pessoa getSupervisor() {
+		return supervisor;
+	}
+
+
+
+
+
+
+
+
+	public void setSupervisor(Pessoa supervisor) {
+		this.supervisor = supervisor;
+	}
+
+
+
+
+
+
+
+
+	public boolean isFormularioValidado() {
+		return formularioValidado;
+	}
+
+
+
+
+
+
+
+
+	public void setFormularioValidado(boolean formularioValidado) {
+		this.formularioValidado = formularioValidado;
 	}
 	
 	

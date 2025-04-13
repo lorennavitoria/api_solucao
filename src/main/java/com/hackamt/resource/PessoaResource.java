@@ -27,5 +27,10 @@ public class PessoaResource {
 	public List<Pessoa> listarAgentes() {
 	    return pessoaService.listarAgentes();
 	}
+	
+	@GetMapping("/buscarvalidador/{idenFormulario}")
+	public Pessoa buscarValidadorFormulario(@PathVariable Long idenFormulario) {
+		return pessoaService.buscarValidadorFormulario(idenFormulario);
+	}
 
 }
